@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+- '0.12'
+deploy:
+  provider: npm
+  email: carlos@adaptive.me
+  api_key:
+    secure: U17BuKMupgH4TqiGbeON8mNoGL+6k5YL7ETViTuJb17YT2NhtcgBGlGg2UfBsOLrDR/MJESG7BEnRLygD/3r/pBdgN6Dvb9E0vpA2Rv5LrVI6x4pQw2/Kw3un4yVDfzdTCcdIQQpwSJcezt0k5gb0EijNTQzpt0daV5QDTMyasU=
+  on:
+    tags: true
+    repo: AdaptiveMe/npm-adaptiveme-nibble
