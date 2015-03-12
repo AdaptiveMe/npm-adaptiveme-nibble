@@ -1,0 +1,30 @@
+{
+    "name": "npm-adaptiveme-nibble",
+    "version": "1.0.0",
+    "description": "Adaptive.me Nibble - The multi-platform mobile device simulator for desktop using NodeJS.",
+    "keywords": [
+        "adaptive",
+        "hybrid",
+        "html5",
+        "mobile",
+        "desktop",
+        "framework"
+    ],
+    "homepage": "http://adaptive.cat",
+    "bugs": "https://github.com/AdaptiveMe/npm-adaptiveme-nibble/issues",
+    "licenses": [
+        {
+            "type": "Apache 2.0"
+        }
+    ],
+    "author": {
+        "name": "Carlos Lozano",
+        "email": "carlos@adaptive.me",
+        "url": "https://github.com/carloslozano"
+    },
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/AdaptiveMe/npm-adaptiveme-nibble"
+    }
+}
