@@ -65,7 +65,7 @@ cd "`dirname \"$PRG\"`/.." >&-
 APP_HOME="`pwd -P`"
 cd "$SAVED" >&-
 
-CLASSPATH=$APP_HOME/lib/adaptive-nibble-emulator-1.0.jar:$APP_HOME/lib/commons-cli-1.2.jar:$APP_HOME/lib/adaptive-nibble-common-1.0.jar:$APP_HOME/lib/adaptive-nibble-os-apple-1.0.jar:$APP_HOME/lib/adaptive-nibble-device-apple-1.0.jar:$APP_HOME/lib/adaptive-nibble-os-1.0.jar:$APP_HOME/lib/adaptive-nibble-device-1.0.jar
+CLASSPATH=$APP_HOME/lib/adaptive-nibble-emulator-1.0.jar:$APP_HOME/lib/commons-cli-1.2.jar:$APP_HOME/lib/adaptive-nibble-common-1.0.jar:$APP_HOME/lib/adaptive-nibble-os-apple-1.0.jar:$APP_HOME/lib/adaptive-nibble-device-apple-1.0.jar:$APP_HOME/lib/adaptive-nibble-debugger-1.0.jar:$APP_HOME/lib/fontawesomefx-8.2.jar:$APP_HOME/lib/adaptive-nibble-os-1.0.jar:$APP_HOME/lib/adaptive-nibble-device-1.0.jar:$APP_HOME/lib/jetty-all-server-8.1.16.v20140903.jar:$APP_HOME/lib/javax.servlet-3.0.0.v201112011016.jar:$APP_HOME/lib/javax.security.auth.message-1.0.0.v201108011116.jar:$APP_HOME/lib/javax.mail.glassfish-1.4.1.v201005082020.jar:$APP_HOME/lib/javax.activation-1.1.0.v201105071233.jar:$APP_HOME/lib/javax.annotation-1.1.0.v201108011116.jar
 
 # Determine the Java command to use to start the JVM.
 if [ -n "$JAVA_HOME" ] ; then
