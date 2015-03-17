@@ -5,7 +5,7 @@
 [![Adaptive Nibble NodeJS](https://img.shields.io/node/v/gh-badges.svg)](https://www.npmjs.com/package/npm-adaptiveme-nibble)
 [![License](https://img.shields.io/badge/license-apache%202-blue.svg)](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/master/LICENSE) 
 [![Adaptive Nibble](https://img.shields.io/badge/arp-devtools-fdcb0e.svg)](https://github.com/AdaptiveMe/npm-adaptiveme-nibble)  [![adaptive.me](https://img.shields.io/badge/adaptive-me-fdcb0e.svg)](http://adaptive.me)
-[![Adaptive Runtime Platform](https://raw.githubusercontent.com/AdaptiveMe/AdaptiveMe.github.io/master/assets/logos/transparent/Logo-adaptive-devtools.png)](#)
+[![Adaptive Development Tools](https://raw.githubusercontent.com/AdaptiveMe/AdaptiveMe.github.io/master/assets/logos/transparent/Logo-adaptive-devtools.png)](#)
 
 ## Introduction
 
