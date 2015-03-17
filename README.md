@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/AdaptiveMe/npm-adaptiveme-nibble.svg?branch=master)](https://travis-ci.org/AdaptiveMe/npm-adaptiveme-nibble)
 [![GitHub tag](https://img.shields.io/github/tag/AdaptiveMe/npm-adaptiveme-nibble.svg)](https://github.com/AdaptiveMe/npm-adaptiveme-nibble) 
 [![License](https://img.shields.io/badge/license-apache%202-blue.svg)](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/master/LICENSE) 
-[![Adaptive Generator for Yeoman](https://img.shields.io/badge/arp-npm-red.svg)](https://github.com/AdaptiveMe/npm-adaptiveme-nibble) [![adaptive.me](https://img.shields.io/badge/adaptive-me-fdcb0e.svg)](http://adaptive.me)
+[![Adaptive Nibble](https://img.shields.io/badge/arp-npm-red.svg)](https://github.com/AdaptiveMe/npm-adaptiveme-nibble) [![Adaptive Nibble NodeJS](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/npm-adaptiveme-nibble) [![adaptive.me](https://img.shields.io/badge/adaptive-me-fdcb0e.svg)](http://adaptive.me)
 [![Adaptive Runtime Platform](https://raw.githubusercontent.com/AdaptiveMe/AdaptiveMe.github.io/master/assets/logos/transparent/arp_for_Yeoman.png)](#)
 
 ## Introduction
