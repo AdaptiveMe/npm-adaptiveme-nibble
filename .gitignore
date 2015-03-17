@@ -1,3 +1,9 @@
 .git
 .idea
 node_modules
+*.tgz
+*.gz
+*.zip
+old_jdk*
+jdk*
+npm-debug.log
