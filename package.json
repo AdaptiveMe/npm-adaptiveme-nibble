@@ -1,6 +1,6 @@
 {
   "name": "npm-adaptiveme-nibble",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Adaptive.me Nibble - The multi-platform mobile device simulator for desktop using NodeJS.",
   "main": "./bin/index.js",
   "preferGlobal": "true",
@@ -30,11 +30,14 @@
   },
   "homepage": "http://adaptive.cat",
   "dependencies": {
+    "adm-zip": "^0.4.7",
     "async": "^0.9.0",
     "colors": "^1.0.3",
     "commander": "^2.7.1",
     "fs-sync": "^0.2.5",
     "npm-adaptiveme-jre": "latest",
-    "shelljs": "^0.3.0"
+    "shelljs": "^0.3.0",
+    "tarball-extract": "0.0.3",
+    "wget-improved": "^1.0.1"
   }
 }

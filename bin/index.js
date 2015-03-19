@@ -6,7 +6,7 @@ var program = require('commander');
 
 // Define program
 program
-    .version('1.0.5')
+    .version('1.0.6')
     .option('-a, --api <version>', 'Adaptive API level to emulate. Default: 2.2.0')
     .option('-d, --device <id>', 'Launch emulator with given device id (id retrieved from --list option). Default: Will launch a cool smartphone.')
     .option('-l, --list <type>', 'List devices for type [all, generic, wearable, smartphone, tablet, browser, desktop, television]. Default: all')
@@ -25,7 +25,7 @@ var colors = require('colors');
 var os = require('os');
 var async = require("async");
 var jre = require('npm-adaptiveme-jre');
-require('shelljs/global');
+var fs = require('fs-sync');
 
 
 if (!program.path) {
@@ -44,7 +44,7 @@ if (program.watch) params = params + "-w " + program.watch + " ";
 console.log(colors.green("Running Adaptive Nibble..."));
 
 // Set the JAVA_HOME
-var platform = lib_jre.getPlatformByNodePlatformAndArch(os.platform(), os.arch());
+var platform = lib.getPlatformByNodePlatform(os.platform());
 
 async.series([
         function (callback) {
@@ -72,13 +72,24 @@ async.series([
         process.env['JAVA_HOME'] = java_home;
         console.log(colors.green("Setting JAVA_HOME = " + java_home));
 
-        // Running the emulator
+        if (!fs.exists(platform.nibble_folder)) {
 
-        console.log(colors.green("Running the emulator..."));
+            if (fs.exists(platform.nibble_name)) {
+                // If exists the file, remove it
+                fs.remove(platform.nibble_name);
+            }
 
-        if (exec(__dirname + '/adaptive-nibble-emulator/bin/adaptive-nibble-emulator' + params).code !== 0) {
-            console.log(colors.red("Error running the emulator. Exiting"));
-            return -1
+            // If there is no folder, download the file
+            lib.downloadNibble(platform, params);
+
+        } else {
+            console.log(colors.green("Running the emulator..."));
+            if (exec(__dirname + '/../' + platform.nibble_folder + '/bin/adaptive-nibble-emulator' + params).code !== 0) {
+                console.log(colors.red("Error running the emulator. Exiting"));
+                return -1
+            }
+
+            return 0;
         }
     });
 
