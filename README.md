@@ -11,7 +11,22 @@
 
 ### About This Project
 
+This project downloads a JDK and runs an emulator to debug HTML5 applications...
+
 Todo :smile:
+
+## Installation
+
+TODO... :smile:
+
+1. Install node in you computer (if you don't have it yet :wink:): https://nodejs.org/download/
+2. Run ```npm i npm-adaptiveme-nibble -g``` from a terminal
+
+## Running
+
+TODO... :smile:
+
+1. Run ```nibble -p <uri>``` from a terminal
 
 ### About Adaptive Runtime Platform
 

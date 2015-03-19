@@ -33,12 +33,8 @@
     "async": "^0.9.0",
     "colors": "^1.0.3",
     "commander": "^2.7.1",
-    "exec-sync": "^0.1.6",
     "fs-sync": "^0.2.5",
     "npm-adaptiveme-jre": "latest",
     "shelljs": "^0.3.0"
-  },
-  "devDependencies": {
-    "exec-sync": "^0.1.6"
   }
 }
