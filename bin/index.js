@@ -6,7 +6,7 @@ var program = require('commander');
 
 // Define program
 program
-    .version('1.0.4')
+    .version('1.0.5')
     .option('-a, --api <version>', 'Adaptive API level to emulate. Default: 2.2.0')
     .option('-d, --device <id>', 'Launch emulator with given device id (id retrieved from --list option). Default: Will launch a cool smartphone.')
     .option('-l, --list <type>', 'List devices for type [all, generic, wearable, smartphone, tablet, browser, desktop, television]. Default: all')
