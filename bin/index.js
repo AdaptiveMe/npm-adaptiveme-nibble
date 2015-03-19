@@ -30,7 +30,7 @@ require('shelljs/global');
 
 if (!program.path) {
     console.log(colors.red("You have to pass the -p argument <uri> Launch emulator with given URI "));
-    return -1;
+    return 0;
 }
 
 var params = " ";
