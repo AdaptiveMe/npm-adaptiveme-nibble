@@ -6,12 +6,13 @@ var program = require('commander');
 
 // Define program
 program
-    .version('1.0.8')
+    .version('1.0.9')
     .option('-a, --api <version>', 'Adaptive API level to emulate. Default: 2.2.0')
     .option('-d, --device <id>', 'Launch emulator with given device id (id retrieved from --list option). Default: Will launch a cool smartphone.')
     .option('-l, --list <type>', 'List devices for type [all, generic, wearable, smartphone, tablet, browser, desktop, television]. Default: all')
     .option('-p, --path <uri>', 'Launch emulator with given URI (if URI is file://, you can combine this with the -w option. Default: file:///<localdir>/index.html')
     .option('-w, --watch <boolean>', 'Watch local resources and reload emulator on changes.Default: false')
+    .option('-r, --skiprun', 'Skip the emulator running')
     .parse(process.argv);
 
 // Custom Dependencies
@@ -61,24 +62,25 @@ async.series([
         console.log(colors.green("Setting JAVA_HOME = " + installDir + platform.java_home));
         process.env['JAVA_HOME'] = installDir + platform.java_home;
 
-        if (!fs.exists(installDir + platform.nibble_folder)) {
+        if (!fs.exists(installDir + path.sep + platform.nibble_folder)) {
 
-            if (fs.exists(installDir + platform.nibble_name)) {
+            if (fs.exists(installDir + path.sep + platform.nibble_name)) {
                 // If exists the file, remove it
-                fs.remove(installDir + platform.nibble_name);
+                fs.remove(installDir + path.sep + platform.nibble_name);
             }
 
             // If there is no folder, download the file
-            lib.downloadNibble(platform, params, installDir);
+            lib.downloadNibble(platform, params, installDir, program.skiprun);
 
         } else {
 
-            console.log(process.cwd());
+            if (!program.skiprun) {
 
-            console.log(colors.green("Running the emulator..."));
-            if (exec(installDir + '/../' + platform.nibble_folder + '/bin/adaptive-nibble-emulator' + params).code !== 0) {
-                console.log(colors.red("Error running the emulator. Exiting"));
-                return -1
+                console.log(colors.green("Running the emulator..."));
+                if (exec(installDir + path.sep + platform.nibble_folder + path.sep + 'bin' + path.sep + 'adaptive-nibble-emulator' + params).code !== 0) {
+                    console.log(colors.red("Error running the emulator. Exiting"));
+                    return -1
+                }
             }
 
             return 0;
