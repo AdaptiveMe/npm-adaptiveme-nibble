@@ -20,13 +20,24 @@ Todo :smile:
 TODO... :smile:
 
 1. Install node in you computer (if you don't have it yet :wink:): https://nodejs.org/download/
-2. Run ```npm i npm-adaptiveme-nibble -g``` from a terminal
+2. Run from a terminal:
+```
+  npm i npm-adaptiveme-nibble -g (windows) 
+  nibble -r -p http://adaptiveme.github.io/ (windows)
+  
+  sudo npm i npm-adaptiveme-nibble -g (macos & linux)
+  sudo nibble -r -p http://adaptiveme.github.io/ (macos & linux)
+```
 
 ## Running
 
 TODO... :smile:
 
-1. Run ```nibble -p <uri>``` from a terminal
+1. Run from a terminal:
+```
+  nibble -p <uri> (windows)
+  sudo nibble -p <uri> (macos & linux)
+```
 
 ### About Adaptive Runtime Platform
 
