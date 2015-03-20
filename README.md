@@ -35,8 +35,7 @@ TODO... :smile:
 
 1. Run from a terminal:
 ```
-  nibble -p <uri> (windows)
-  sudo nibble -p <uri> (macos & linux)
+  nibble -p <uri>
 ```
 
 ### About Adaptive Runtime Platform
