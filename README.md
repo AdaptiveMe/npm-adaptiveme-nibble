@@ -21,19 +21,20 @@ If you want the **integrated** version for Adaptive Generator for Yeoman, please
 
 ### Installation
 
-
 * You should NodeJS installed on your machine before proceeding with the installation. If you don't have it, please download it from [here](https://nodejs.org/download/) for your platform. 
 	*	If you don't know whether you have it installed, open up a ```terminal```or ```cmd prompt``` and issue the following command ```node -v```.
 	* The above command should respond with at least the following NodeJS version ```v0.12.0```.
 * Install the ```npm-adaptiveme-nibble``` on your machine.
 	* On **Windows** from ```cmd prompt```:
-		
+	
+	
 	```
   		npm i npm-adaptiveme-nibble -g 
   		nibble -r -p http://adaptiveme.github.io/ 
-   ```
+   	```
 	* On **OS X** and **Linux** from ```terminal```:
 	
+
 	``` 
   		sudo npm i npm-adaptiveme-nibble -g
   		sudo nibble -r -p http://adaptiveme.github.io/
@@ -54,17 +55,17 @@ If you want the **integrated** version for Adaptive Generator for Yeoman, please
 * Updating your ```npm-adaptiveme-nibble``` installation.
 	* On **Windows** from ```cmd prompt```:
 		
+
 	```
   		npm up npm-adaptiveme-nibble -g 
-
-   ```
+   	```
+   	
 	* On **OS X** and **Linux** from ```terminal```:
 	
+
 	``` 
   		sudo npm up npm-adaptiveme-nibble -g
-
 	```
-
 
 ## About Adaptive Runtime Platform
 
