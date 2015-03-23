@@ -46,7 +46,8 @@ If you want the **integrated** version for Adaptive Generator for Yeoman, please
 * Run from a ```terminal``` or ```cmd prompt```:
 
 	*	```nibble -h``` to launch nibble help message for parameters.
-
+	*	```nibble -p http://www.google.com``` to launch nibble with the given URL.
+	*	```nibble -p <some_local_path>/index.html -w true``` to launch nibble with the given file and watch for changes.
 * You're ready to start developing! Enjoy.
 
 * Please report issues/wants/needs [here](https://github.com/AdaptiveMe/npm-adaptiveme-nibble/issues) clearly stating your platform and screenshots (whenever possible).
