@@ -17,7 +17,9 @@ This is the **stand-alone** Adaptive Nibble installer for NodeJS.
 
 If you want the **integrated** version for Adaptive Generator for Yeoman, please refer to the following repo: [AdaptiveMe App Generator for Yeoman](https://github.com/AdaptiveMe/generator-adaptiveme) for installation instructions.
 
-## Installation
+## Use It
+
+### Installation
 
 
 * You should NodeJS installed on your machine before proceeding with the installation. If you don't have it, please download it from [here](https://nodejs.org/download/) for your platform. 
@@ -38,7 +40,7 @@ If you want the **integrated** version for Adaptive Generator for Yeoman, please
 	```
 *	The installer will download everything you need to run Adaptive Nibble.
 
-## Running
+### Running
 
 * Run from a ```terminal``` or ```cmd prompt```:
 
@@ -48,7 +50,7 @@ If you want the **integrated** version for Adaptive Generator for Yeoman, please
 
 * Please report issues/wants/needs [here](https://github.com/AdaptiveMe/npm-adaptiveme-nibble/issues) clearly stating your platform and screenshots (whenever possible).
 
-## Updating
+### Updating
 * Updating your ```npm-adaptiveme-nibble``` installation.
 	* On **Windows** from ```cmd prompt```:
 		
