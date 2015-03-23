@@ -11,9 +11,9 @@
 
 ### About This Project
 
-Adaptive Nibble is a mobile device simulator for hybrid-app development. It allows you to use the emulator during the development to preview your app as you develop it and it also emulates calls to the Adaptive Runtime Platform APIs.
+[![Adaptive Nibble Screenshot](https://raw.githubusercontent.com/AdaptiveMe/AdaptiveMe.github.io/master/assets/screenshots/nibble-screenshot.png)](#)
 
-This is the **stand-alone** Adaptive Nibble installer for NodeJS. 
+Adaptive Nibble is a mobile device simulator for hybrid-app development. It allows you to use the emulator during the development to preview your app as you develop it and it also emulates calls to the Adaptive Runtime Platform APIs. This is the **stand-alone** Adaptive Nibble installer for NodeJS. 
 
 If you want the **integrated** version for Adaptive Generator for Yeoman, please refer to the following repo: [AdaptiveMe App Generator for Yeoman](https://github.com/AdaptiveMe/generator-adaptiveme) for installation instructions.
 
