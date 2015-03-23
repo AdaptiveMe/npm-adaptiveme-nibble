@@ -11,34 +11,60 @@
 
 ### About This Project
 
-This project downloads a JDK and runs an emulator to debug HTML5 applications...
+Adaptive Nibble is a mobile device simulator for hybrid-app development. It allows you to use the emulator during the development to preview your app as you develop it and it also emulates calls to the Adaptive Runtime Platform APIs.
 
-Todo :smile:
+This is the **stand-alone** Adaptive Nibble installer for NodeJS. 
+
+If you want the **integrated** version for Adaptive Generator for Yeoman, please refer to the following repo: [AdaptiveMe App Generator for Yeoman](https://github.com/AdaptiveMe/generator-adaptiveme) for installation instructions.
 
 ## Installation
 
-TODO... :smile:
 
-1. Install node in you computer (if you don't have it yet :wink:): https://nodejs.org/download/
-2. Run from a terminal:
-```
-  npm i npm-adaptiveme-nibble -g (windows) 
-  nibble -r -p http://adaptiveme.github.io/ (windows)
-  
-  sudo npm i npm-adaptiveme-nibble -g (macos & linux)
-  sudo nibble -r -p http://adaptiveme.github.io/ (macos & linux)
-```
+* You should NodeJS installed on your machine before proceeding with the installation. If you don't have it, please download it from [here](https://nodejs.org/download/) for your platform. 
+	*	If you don't know whether you have it installed, open up a ```terminal```or ```cmd prompt``` and issue the following command ```node -v```.
+	* The above command should respond with at least the following NodeJS version ```v0.12.0```.
+* Install the ```npm-adaptiveme-nibble``` on your machine.
+	* On **Windows** from ```cmd prompt```:
+		
+	```
+  		npm i npm-adaptiveme-nibble -g 
+  		nibble -r -p http://adaptiveme.github.io/ 
+   ```
+	* On **OS X** and **Linux** from ```terminal```:
+	
+	``` 
+  		sudo npm i npm-adaptiveme-nibble -g
+  		sudo nibble -r -p http://adaptiveme.github.io/
+	```
+*	The installer will download everything you need to run Adaptive Nibble.
 
 ## Running
 
-TODO... :smile:
+* Run from a ```terminal``` or ```cmd prompt```:
 
-1. Run from a terminal:
-```
-  nibble -p <uri>
-```
+	*	```nibble -h``` to launch nibble help message for parameters.
 
-### About Adaptive Runtime Platform
+* You're ready to start developing! Enjoy.
+
+* Please report issues/wants/needs [here](https://github.com/AdaptiveMe/npm-adaptiveme-nibble/issues) clearly stating your platform and screenshots (whenever possible).
+
+## Updating
+* Updating your ```npm-adaptiveme-nibble``` installation.
+	* On **Windows** from ```cmd prompt```:
+		
+	```
+  		npm up npm-adaptiveme-nibble -g 
+
+   ```
+	* On **OS X** and **Linux** from ```terminal```:
+	
+	``` 
+  		sudo npm up npm-adaptiveme-nibble -g
+
+	```
+
+
+## About Adaptive Runtime Platform
 
 Hybrid apps are applications that are built using HTML5/CSS3/JavaScript web technologies and use a native "containers" to package the app to enable access to the native functionalities of a device. In essence, you can write a rich mobile/wearable/tv application using HTML and JavaScript and package that application as a native app for multiple mobile/wearable/tv platforms and distribute them on the different app stores and markets.
 
