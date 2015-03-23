@@ -11,7 +11,7 @@
 
 ### About This Project
 
-[![Adaptive Nibble Screenshot](https://raw.githubusercontent.com/AdaptiveMe/AdaptiveMe.github.io/master/assets/screenshots/nibble-screenshot.png)](#)
+[![Adaptive Nibble Screenshot](https://raw.githubusercontent.com/AdaptiveMe/AdaptiveMe.github.io/master/assets/screenshots/nibble-screenshot.png)](https://raw.githubusercontent.com/AdaptiveMe/AdaptiveMe.github.io/master/assets/screenshots/nibble-screenshot.png)
 
 Adaptive Nibble is a mobile device simulator for hybrid-app development. It allows you to use the emulator during the development to preview your app as you develop it and it also emulates calls to the Adaptive Runtime Platform APIs. This is the **stand-alone** Adaptive Nibble installer for NodeJS. 
 
