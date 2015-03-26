@@ -7,7 +7,6 @@
     "nibble": "bin/index.js"
   },
   "scripts": {
-    "prepublish": "grunt bump:patch",
     "postinstall": "node bin/install.js",
     "test": "grunt"
   },
