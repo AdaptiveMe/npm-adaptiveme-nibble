@@ -32,10 +32,14 @@ after_success:
     if [ "$CURRENT_TAG" == "$PACKAGE_TAG" ]; then
     
       echo "Commit bumped file version."
+      
+      grunt bump:patch
           
     elif [ "$CURRENT_TAG" != "$PACKAGE_TAG" ]; then
     
       echo "Tag current file version."
+      
+      grunt release
     
     fi
     
