@@ -1,14 +1,12 @@
 {
   "name": "npm-adaptiveme-nibble",
-  "version": "2.0.0",
+  "version": "2.0.13",
   "description": "Adaptive.me Nibble - The multi-platform mobile device simulator for desktop using NodeJS.",
-  "main": "bin/index.js",
   "preferGlobal": "true",
   "bin": {
     "nibble": "bin/index.js"
   },
   "scripts": {
-    "prepublish": "grunt bump:patch",
     "postinstall": "node bin/install.js",
     "test": "grunt"
   },

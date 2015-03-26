@@ -4,6 +4,39 @@ node_js:
 - '0.12'
 script:
 - npm test
+before_install:
+- export HOME=`pwd`
+- mkdir -p .git
+- git config --global credential.helper "store --file=$HOME/.git/credentials"
+- git config --global user.email "carlos@adaptive.me"
+- git config --global user.name "carloslozano"
+- git config --global push.default simple
+- echo "https://${GH_TOKEN}:@github.com" > $HOME/.git/credentials
+- git remote set-url origin https://github.com/AdaptiveMe/npm-adaptiveme-nibble.git
+
+  if [ "$TRAVIS_BRANCH" != "$TRAVIS_TAG" ]; then
+
+    git checkout master
+  
+  fi
+
+- export CURRENT_TAG=`git describe --abbrev=0`
+
+after_success:
+  if [ "$TRAVIS_BRANCH" != "$TRAVIS_TAG" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+  
+    export PACKAGE_TAG=`node bin/version.js`
+  
+    echo Github:$CURRENT_TAG Package:$PACKAGE_TAG
+    
+    if [ "$CURRENT_TAG" != "$PACKAGE_TAG" ]; then
+    
+      grunt bump:patch
+          
+    fi
+    
+  fi
+  
 deploy:
   provider: npm
   email: carlos@adaptive.me
@@ -12,3 +45,6 @@ deploy:
   on:
     tags: true
     repo: AdaptiveMe/npm-adaptiveme-nibble
+env:
+  global:
+    secure: Ut+Y2cGFjhAGojcs4vvshrZq+8xz2VscDmzkE/Ri8ic2Hr3crawYIkWp3aSQoywklD4Rm/zvjenRBXbPIBOmuvZv1SW+5VZMoWBXkvrkgWh0wM6lEfGAI0i1Df9t5afIZPC4ZclkSbF4iGyxwsjKYYHNg5z/7/WhxzCR2UPp6to=
