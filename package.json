@@ -1,11 +1,16 @@
 {
   "name": "npm-adaptiveme-nibble",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "Adaptive.me Nibble - The multi-platform mobile device simulator for desktop using NodeJS.",
-  "main": "./bin/index.js",
+  "main": "bin/index.js",
   "preferGlobal": "true",
   "bin": {
-    "nibble": "./bin/index.js"
+    "nibble": "bin/index.js"
+  },
+  "scripts": {
+    "prepublish": "grunt bump:patch",
+    "postinstall": "node bin/install.js",
+    "test": "grunt"
   },
   "repository": {
     "type": "git",
@@ -34,13 +39,27 @@
     "async": "^0.9.0",
     "colors": "^1.0.3",
     "commander": "^2.7.1",
-    "fs": "0.0.2",
-    "fs-sync": "^0.2.5",
-    "npm-adaptiveme-jre": "latest",
-    "path": "^0.11.14",
+    "exit": "^0.1.2",
+    "expect.js": "^0.3.1",
     "progress": "^1.1.8",
-    "shelljs": "^0.3.0",
+    "request": "^2.54.0",
+    "shelljs": "^0.4.0",
     "tarball-extract": "0.0.3",
+    "trycatch": "^1.5.11",
     "wget-improved": "^1.0.1"
+  },
+  "engines": {
+    "node": ">=0.12.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-bump": "^0.3.0",
+    "grunt-cli": "^0.1.13",
+    "grunt-eslint": "^9.0.0",
+    "grunt-jscs": "^1.5.0",
+    "grunt-mocha-test": "^0.12.7",
+    "load-grunt-tasks": "^3.1.0",
+    "mocha": "^2.2.1",
+    "time-grunt": "^1.1.0"
   }
 }

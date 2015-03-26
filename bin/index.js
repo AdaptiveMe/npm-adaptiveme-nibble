@@ -2,88 +2,65 @@
 
 'use strict';
 
-var program = require('commander');
+var program = require('commander'),
+  pJson = require('../package.json'),
+  exit = require('exit'),
+  lib = require('../lib/lib.js'),
+  colors = require('colors/safe'),
+  path = require('path'),
+  os = require('os'),
+  shell = require('shelljs'),
+  fs = require('fs'),
+  trycatch = require('trycatch');
 
-// Define program
-program
-    .version('1.1.1')
-    .option('-a, --api <version>', 'Adaptive API level to emulate. Default: 2.2.0')
-    .option('-d, --device <id>', 'Launch emulator with given device id (id retrieved from --list option). Default: Will launch a cool smartphone.')
-    .option('-l, --list <type>', 'List devices for type [all, generic, wearable, smartphone, tablet, browser, desktop, television]. Default: all')
+trycatch(function () {
+
+  // Define program
+  program
+    .version(pJson.version)
+    //.option('-a, --api <version>', 'Adaptive API level to emulate. Default: 2.2.0')
+    //.option('-d, --device <id>', 'Launch emulator with given device id (id retrieved from --list option). Default: Will launch a cool smartphone.')
+    //.option('-l, --list <type>', 'List devices for type [all, generic, wearable, smartphone, tablet, browser, desktop, television]. Default: all')
     .option('-p, --path <uri>', 'Launch emulator with given URI (if URI is file://, you can combine this with the -w option. Default: file:///<localdir>/index.html')
-    .option('-w, --watch <boolean>', 'Watch local resources and reload emulator on changes.Default: false')
-    .option('-r, --skiprun', 'Skip the emulator running')
+    .option('-w, --watch', 'Watch local resources and reload emulator on changes.Default: false')
     .parse(process.argv);
 
-// Custom Dependencies
-var lib = require('../lib/index.js');
-var constants_jre = require('../node_modules/npm-adaptiveme-jre/lib/constants.js');
-var lib_jre = require('../node_modules/npm-adaptiveme-jre/lib/index.js');
+  var params = ' ';
 
-// Global Dependencies
-var program = require('commander');
-var colors = require('colors');
-var os = require('os');
-var async = require("async");
-var jre = require('npm-adaptiveme-jre');
-var fs = require('fs-sync');
-var fsa = require('fs');
-var path = require('path');
+  if (program.path) {
+    params = params + '-p ' + program.path + ' ';
+  } else {
+    console.log(colors.red.bold('[nibble] error: option -p, --path <uri> argument missing'));
+    exit(-1);
+  }
+  if (program.watch) {
+    params = params + '-w true ';
+  }
 
+  console.log(colors.green('[nibble] Running Adaptive Nibble...'));
 
-if (!program.path) {
-    console.log(colors.red("You have to pass the -p argument <uri> Launch emulator with given URI "));
-    return 0;
-}
+  // Current Platform
+  var platform = lib.getPlatformByNodePlatformAndArch(os.platform(), os.arch());
 
-var params = " ";
-if (program.api) params = params + "-a " + program.api + " ";
-if (program.device) params = params + "-d " + program.device + " ";
-if (program.list) params = params + "-l " + program.list + " ";
-if (program.path) params = params + "-p " + program.path + " ";
-if (program.watch) params = params + "-w " + program.watch + " ";
+  if (!platform) {
+    console.log(colors.red.bold('[nibble] There is no platform configured for the current operating system: %s %s'), os.platform(), os.arch());
+    exit(-1);
+  } else {
+    console.log(colors.green('[nibble] Current platform: %s'), platform.name);
+  }
 
+  // Run nibble
+  var dir = path.dirname(fs.realpathSync(__filename));
 
-console.log(colors.green("Running Adaptive Nibble..."));
+  if (shell.exec(dir + path.sep + platform.nibble_dir + path.sep + 'bin' + path.sep + 'adaptive-nibble-emulator' + params).code !== 0) {
+    console.log(colors.red.bold('[nibble] Error running the emulator. Exiting'));
+    exit(-1);
+  }
 
-// Set the JAVA_HOME
-var platform = lib.getPlatformByNodePlatform(os.platform());
+  exit(0);
 
-async.series([
-        function (callback) {
-            jre.execute(callback);
-        }
-    ],
-    // optional callback
-    function (err, results) {
+}, function (err) {
 
-        var installDir = path.dirname(fsa.realpathSync(__filename));
-
-        console.log(colors.green("Setting JAVA_HOME = " + installDir + platform.java_home));
-        process.env['JAVA_HOME'] = installDir + platform.java_home;
-
-        if (!fs.exists(installDir + path.sep + platform.nibble_folder)) {
-
-            if (fs.exists(installDir + path.sep + platform.nibble_name)) {
-                // If exists the file, remove it
-                fs.remove(installDir + path.sep + platform.nibble_name);
-            }
-
-            // If there is no folder, download the file
-            lib.downloadNibble(platform, params, installDir, program.skiprun);
-
-        } else {
-
-            if (!program.skiprun) {
-
-                console.log(colors.green("Running the emulator..."));
-                if (exec(installDir + path.sep + platform.nibble_folder + path.sep + 'bin' + path.sep + 'adaptive-nibble-emulator' + params).code !== 0) {
-                    console.log(colors.red("Error running the emulator. Exiting"));
-                    return -1
-                }
-            }
-
-            return 0;
-        }
-    });
-
+  console.log(colors.red.bold('[nibble] Error: '), err);
+  exit(-1);
+});
