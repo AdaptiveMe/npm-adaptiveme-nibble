@@ -84,7 +84,7 @@ We'd *love to accept your patches and contributions to this project*.  There are
 
 * Obvously, us, the committers! :smile:
 * Adaptive Runtime Platform (ARP) artwork by [Jennifer Lasso](https://github.com/Jlassob).
-* [JxBrowser](http://www.teamdev.com/jxbrowser) component by [TeamDev](http://www.teamdev.com).
+* [JxBrowser](http://www.teamdev.com/jxbrowser) component by [TeamDev](http://www.teamdev.com). :thumbsup:
 * Project badge artwork by [shields.io](http://shields.io/).
 * All other logos are copyright of their respective owners.
 
