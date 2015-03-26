@@ -2,6 +2,8 @@ sudo: false
 language: node_js
 node_js:
 - '0.12'
+script:
+- npm test
 before_install:
 - export HOME=`pwd`
 - mkdir -p .git
