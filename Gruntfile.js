@@ -31,15 +31,22 @@ module.exports = function (grunt) {
         commit: true,
         commitMessage: 'Release %VERSION%',
         commitFiles: ['package.json'],
-        createTag: true,
-        tagName: '%VERSION%',
-        tagMessage: 'Version %VERSION%',
+        createTag: false,
+        //tagName: '%VERSION%',
+        //tagMessage: 'Version %VERSION%',
         push: true,
         pushTo: 'origin',
         gitDescribeOptions: '--tags --always --abbrev=1 --dirty=-d',
         globalReplace: false,
         prereleaseName: false,
         regExp: false
+      }
+    },
+
+    release: {
+      options: {
+        bump: false,
+        npm: false
       }
     }
 
