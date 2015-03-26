@@ -29,15 +29,13 @@ If you want the **integrated** version for Adaptive Generator for Yeoman, please
 	
 	
 	```
-  		npm i npm-adaptiveme-nibble -g 
-  		nibble -r -p http://adaptiveme.github.io/ 
+  		npm i npm-adaptiveme-nibble -g
    	```
 	* On **OS X** and **Linux** from ```terminal```:
 	
 
 	``` 
   		sudo npm i npm-adaptiveme-nibble -g
-  		sudo nibble -r -p http://adaptiveme.github.io/
 	```
 *	The installer will download everything you need to run Adaptive Nibble.
 
@@ -47,7 +45,7 @@ If you want the **integrated** version for Adaptive Generator for Yeoman, please
 
 	*	```nibble -h``` to launch nibble help message for parameters.
 	*	```nibble -p http://www.google.com``` to launch nibble with the given URL.
-	*	```nibble -p <some_local_path>/index.html -w true``` to launch nibble with the given file and watch for changes.
+	*	```nibble -p <some_local_path>/index.html -w``` to launch nibble with the given file and watch for changes.
 * You're ready to start developing! Enjoy.
 
 * Please report issues/wants/needs [here](https://github.com/AdaptiveMe/npm-adaptiveme-nibble/issues) clearly stating your platform and screenshots (whenever possible).
