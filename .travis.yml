@@ -2,6 +2,12 @@ sudo: false
 language: node_js
 node_js:
 - '0.12'
+before_script:
+- git config --global credential.helper "store --file=$HOME/.git/credentials"
+- git config --global user.email "carlos@adaptive.me"
+- git config --global user.name "carloslozano"
+- git config --global push.default simple
+- echo "https://${GH_TOKEN}:@github.com" > $HOME/.git/credentials
 script:
 - npm test
 deploy:
@@ -12,3 +18,6 @@ deploy:
   on:
     tags: true
     repo: AdaptiveMe/npm-adaptiveme-nibble
+env:
+  global:
+    secure: Ut+Y2cGFjhAGojcs4vvshrZq+8xz2VscDmzkE/Ri8ic2Hr3crawYIkWp3aSQoywklD4Rm/zvjenRBXbPIBOmuvZv1SW+5VZMoWBXkvrkgWh0wM6lEfGAI0i1Df9t5afIZPC4ZclkSbF4iGyxwsjKYYHNg5z/7/WhxzCR2UPp6to=
