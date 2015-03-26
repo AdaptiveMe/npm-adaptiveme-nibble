@@ -11,7 +11,7 @@ before_install:
 - git config --global push.default simple
 - echo "https://${GH_TOKEN}:@github.com" > $HOME/.git/credentials
 - git remote set-url origin https://github.com/AdaptiveMe/npm-adaptiveme-nibble.git
-- git pull origin master
+- git checkout master
 deploy:
   provider: npm
   email: carlos@adaptive.me
