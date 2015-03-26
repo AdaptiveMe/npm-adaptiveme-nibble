@@ -14,7 +14,7 @@ before_install:
 - echo "https://${GH_TOKEN}:@github.com" > $HOME/.git/credentials
 - git remote set-url origin https://github.com/AdaptiveMe/npm-adaptiveme-nibble.git
 
-  if [ "$TRAVIS_BRANCH" != "$TRAVIS_TAG" ]; then
+  if [ "$TRAVIS_BRANCH" != "$TRAVIS_TAG" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
     git checkout master
   
