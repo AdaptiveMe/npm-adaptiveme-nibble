@@ -27,12 +27,10 @@ If you want the **integrated** version for Adaptive Generator for Yeoman, please
 * Install the ```npm-adaptiveme-nibble``` on your machine.
 	* On **Windows** from ```cmd prompt```:
 	
-	
 	```
   		npm i npm-adaptiveme-nibble -g
    	```
 	* On **OS X** and **Linux** from ```terminal```:
-	
 
 	``` 
   		sudo npm i npm-adaptiveme-nibble -g
@@ -54,14 +52,12 @@ If you want the **integrated** version for Adaptive Generator for Yeoman, please
 * Updating your ```npm-adaptiveme-nibble``` installation.
 	* On **Windows** from ```cmd prompt```:
 		
-
 	```
   		npm up npm-adaptiveme-nibble -g 
    	```
    	
 	* On **OS X** and **Linux** from ```terminal```:
 	
-
 	``` 
   		sudo npm up npm-adaptiveme-nibble -g
 	```
@@ -86,6 +82,7 @@ We'd *love to accept your patches and contributions to this project*.  There are
 
 ## Attributions
 
+* Obvously, us, the committers! :smile:
 * Adaptive Runtime Platform (ARP) artwork by [Jennifer Lasso](https://github.com/Jlassob).
 * [JxBrowser](http://www.teamdev.com/jxbrowser) component by [TeamDev](http://www.teamdev.com).
 * Project badge artwork by [shields.io](http://shields.io/).
