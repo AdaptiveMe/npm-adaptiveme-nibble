@@ -14,7 +14,7 @@ before_install:
 - echo "https://${GH_TOKEN}:@github.com" > $HOME/.git/credentials
 - git remote set-url origin https://github.com/AdaptiveMe/npm-adaptiveme-nibble.git
 
-  if [ "$TRAVIS_BRANCH" != "$TRAVIS_TAG" ]; then
+  if [ "$TRAVIS_BRANCH" != "$TRAVIS_TAG" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
     git checkout master
   
@@ -29,10 +29,14 @@ after_success:
   
     echo Github:$CURRENT_TAG Package:$PACKAGE_TAG
     
-    if [ "$CURRENT_TAG" != "$PACKAGE_TAG" ]; then
+    if [ "$CURRENT_TAG" == "$PACKAGE_TAG" ]; then
     
-      grunt bump:patch
+      echo "Commit bumped file version."
           
+    elif [ "$CURRENT_TAG" != "$PACKAGE_TAG" ]; then
+    
+      echo "Tag current file version."
+    
     fi
     
   fi
