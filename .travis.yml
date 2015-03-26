@@ -3,6 +3,7 @@ language: node_js
 node_js:
 - '0.12'
 before_install:
+- mkdir -p .git
 - git config --global credential.helper "store --file=$HOME/.git/credentials"
 - git config --global user.email "carlos@adaptive.me"
 - git config --global user.name "carloslozano"
