@@ -28,6 +28,7 @@ after_success:
     export PACKAGE_TAG=`node bin/version.js`
   
     echo Github:$CURRENT_TAG Package:$PACKAGE_TAG
+    
     if [ "$CURRENT_TAG" != "$PACKAGE_TAG" ]; then
     
       grunt bump:patch
