@@ -87,11 +87,14 @@ We'd *love to accept your patches and contributions to this project*.  There are
 ## Attributions
 
 * Adaptive Runtime Platform (ARP) artwork by [Jennifer Lasso](https://github.com/Jlassob).
+* [JxBrowser](http://www.teamdev.com/jxbrowser) component by [TeamDev](http://www.teamdev.com).
 * Project badge artwork by [shields.io](http://shields.io/).
 * All other logos are copyright of their respective owners.
 
 ## License
 All the source code of the Adaptive Runtime Platform (ARP), including all Adaptive Runtime Platform (ARP) sub-projects curated by [Carlos Lozano Diez](https://github.com/carloslozano), are distributed, and must be contributed to, under the terms of the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html). The [license](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/master/LICENSE) is included in this [repository](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/master/LICENSE).
+
+The [JxBrowser](http://www.teamdev.com/jxbrowser) components used in this project are licensed by [Carlos Lozano Diez](https://github.com/carloslozano) for the sole use in the AdaptiveMe open-source components. If you wish to use [JxBrowser](http://www.teamdev.com/jxbrowser) in your software, please contact [TeamDev](http://www.teamdev.com/contact) for licensing.
 
 Forged with :heart: in Barcelona, Catalonia · © 2013 - 2015 [adaptive.me](http://adaptive.me) / [Carlos Lozano Diez](http://google.com/+CarlosLozano).
 
