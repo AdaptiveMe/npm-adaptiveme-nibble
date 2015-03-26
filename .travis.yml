@@ -3,6 +3,7 @@ language: node_js
 node_js:
 - '0.12'
 before_install:
+- export HOME=`pwd`
 - mkdir -p .git
 - git config --global credential.helper "store --file=$HOME/.git/credentials"
 - git config --global user.email "carlos@adaptive.me"
@@ -10,8 +11,6 @@ before_install:
 - git config --global push.default simple
 - echo "https://${GH_TOKEN}:@github.com" > $HOME/.git/credentials
 - git remote set-url origin https://github.com/AdaptiveMe/npm-adaptiveme-nibble.git
-script:
-- npm test
 deploy:
   provider: npm
   email: carlos@adaptive.me
