@@ -3,7 +3,7 @@ language: node_js
 node_js:
 - '0.12'
 script:
-- node . -p http://adaptiveme.github.io/ -r
+- npm test
 deploy:
   provider: npm
   email: carlos@adaptive.me
