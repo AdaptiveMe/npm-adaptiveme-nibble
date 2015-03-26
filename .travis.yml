@@ -12,11 +12,13 @@ before_install:
 - echo "https://${GH_TOKEN}:@github.com" > $HOME/.git/credentials
 - git remote set-url origin https://github.com/AdaptiveMe/npm-adaptiveme-nibble.git
 - export CURRENT_TAG=`git describe --abbrev=0`
+
   if [ "$TRAVIS_BRANCH" != "$TRAVIS_TAG" ]; then
 
     git checkout master
   
   fi
+  
 deploy:
   provider: npm
   email: carlos@adaptive.me
