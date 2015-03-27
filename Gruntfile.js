@@ -46,7 +46,12 @@ module.exports = function (grunt) {
     release: {
       options: {
         bump: false,
-        npm: false
+        npm: false,
+        github: {
+          repo: 'AdaptiveMe/npm-adaptiveme-nibble',
+          usernameVar: 'GITHUB_USERNAME',
+          passwordVar: 'GITHUB_PASSWORD'
+        }
       }
     }
 
