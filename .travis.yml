@@ -19,34 +19,34 @@ before_install:
   if [ "$TRAVIS_BRANCH" != "$TRAVIS_TAG" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
     git checkout master
-  
+
   fi
 
 - export CURRENT_TAG=`git describe --abbrev=0`
 
 after_success:
   if [ "$TRAVIS_BRANCH" != "$TRAVIS_TAG" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-  
+
     export PACKAGE_TAG=`node bin/version.js`
-  
+
     echo Github:$CURRENT_TAG Package:$PACKAGE_TAG
-    
+
     if [ "$CURRENT_TAG" == "$PACKAGE_TAG" ]; then
-    
+
       echo "Commit bumped file version."
-      
+
       grunt bump:patch
-          
+
     elif [ "$CURRENT_TAG" != "$PACKAGE_TAG" ]; then
-    
+
       echo "Tag current file version."
-      
-      grunt release
-    
+
+      grunt release:patch
+
     fi
-    
+
   fi
-  
+
 deploy:
   provider: npm
   email: carlos@adaptive.me
