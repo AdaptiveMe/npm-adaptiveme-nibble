@@ -56,7 +56,7 @@ trycatch(function () {
 
           console.log(colors.magenta('[nibble] Extracting nibble: %s'), nibble_file);
 
-          if (platform.nibble_ext === 'tar') {
+          if (platform.nibble_ext === 'tgz') {
 
             tarball.extractTarball(nibble_file, nibble_dir, function (err) {
               if (err) {
