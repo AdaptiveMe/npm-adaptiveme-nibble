@@ -23,6 +23,9 @@ before_install:
 - export CURRENT_TAG=`git describe --abbrev=0`
 
 after_success:
+
+  rm -Rf /home/travis/build/AdaptiveMe/npm-adaptiveme-nibble/bin/adaptive-nibble-emulator
+
   if [ "$TRAVIS_BRANCH" != "$TRAVIS_TAG" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
     export PACKAGE_TAG=`node bin/version.js`
