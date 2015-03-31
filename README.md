@@ -94,3 +94,4 @@ All the source code of the Adaptive Runtime Platform (ARP), including all Adapti
 The [JxBrowser](http://www.teamdev.com/jxbrowser) components used in this project are licensed by [Carlos Lozano Diez](https://github.com/carloslozano) for the sole use in the AdaptiveMe open-source components. If you wish to use [JxBrowser](http://www.teamdev.com/jxbrowser) in your software, please contact [TeamDev](http://www.teamdev.com/contact) for licensing.
 
 Forged with :heart: in Barcelona, Catalonia · © 2013 - 2015 [adaptive.me](http://adaptive.me) / [Carlos Lozano Diez](http://google.com/+CarlosLozano).
+
