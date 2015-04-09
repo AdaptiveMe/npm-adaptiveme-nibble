@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/AdaptiveMe/npm-adaptiveme-nibble.svg?branch=master)](https://travis-ci.org/AdaptiveMe/npm-adaptiveme-nibble)
 [![GitHub tag](https://img.shields.io/github/tag/AdaptiveMe/npm-adaptiveme-nibble.svg)](https://github.com/AdaptiveMe/npm-adaptiveme-nibble) 
 [![Adaptive Nibble NodeJS](https://img.shields.io/npm/v/npm.svg)](https://www.npmjs.com/package/npm-adaptiveme-nibble) 
-[![Adaptive Nibble NodeJS](https://img.shields.io/node/v/gh-badges.svg)](https://www.npmjs.com/package/npm-adaptiveme-nibble)
+[![Adaptive Nibble NodeJS](https://img.shields.io/node/v/gh-badges.svg)](https://www.npmjs.com/package/npm-adaptiveme-nibble) [![Dependency Status](https://david-dm.org/AdaptiveMe/npm-adaptiveme-nibble.svg)](https://david-dm.org/AdaptiveMe/npm-adaptiveme-nibble) [![devDependency Status](https://david-dm.org/AdaptiveMe/npm-adaptiveme-nibble/dev-status.svg)](https://david-dm.org/AdaptiveMe/npm-adaptiveme-nibble#info=devDependencies) 
 [![License](https://img.shields.io/badge/license-apache%202-blue.svg)](https://raw.githubusercontent.com/AdaptiveMe/adaptive-arp-api/master/LICENSE) 
 [![Adaptive Nibble](https://img.shields.io/badge/devtools-nibble-yellow.svg)](https://github.com/AdaptiveMe/npm-adaptiveme-nibble)  [![adaptive.me](https://img.shields.io/badge/adaptive-me-fdcb0e.svg)](http://adaptive.me)
 [![Adaptive Development Tools](https://raw.githubusercontent.com/AdaptiveMe/AdaptiveMe.github.io/master/assets/logos/normal/Logo-adaptive-devtools.png)](#)
