@@ -15,16 +15,16 @@ trycatch(function () {
   // Get the current dir
   var dir = path.dirname(fs.realpathSync(__filename));
 
-  // Define program
-  program
-    .on('--help', function () {
-      console.log(colors.green(lib.runNibble('-h', dir)));
-    }).parse(process.argv);
+  var myArgs = '';
+  var myArgsArray = process.argv.slice(2);
+  for (var i=0; i<myArgsArray.length; i++){
+    myArgs = myArgs + myArgsArray[i] + ' ';
+  }
 
   console.log(colors.green('[nibble] Running Adaptive Nibble...'));
 
   // Run nibble
-  lib.runNibble(process.argv, dir);
+  lib.runNibble(myArgs, dir);
 
 }, function (err) {
   console.log(colors.red.bold('[nibble] Error: '), err);
