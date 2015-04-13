@@ -2,8 +2,7 @@
 
 'use strict';
 
-var program = require('commander'),
-  exit = require('exit'),
+var exit = require('exit'),
   path = require('path'),
   lib = require('../lib/lib.js'),
   colors = require('colors/safe'),
@@ -17,7 +16,7 @@ trycatch(function () {
 
   var myArgs = '';
   var myArgsArray = process.argv.slice(2);
-  for (var i=0; i<myArgsArray.length; i++){
+  for (var i = 0; i < myArgsArray.length; i++) {
     myArgs = myArgs + myArgsArray[i] + ' ';
   }
 
