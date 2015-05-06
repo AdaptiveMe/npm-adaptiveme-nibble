@@ -11,7 +11,8 @@ var colors = require('colors/safe'),
   fs = require('fs'),
   path = require('path'),
   tarball = require('tarball-extract'),
-  AdmZip = require('adm-zip');
+  AdmZip = require('adm-zip'),
+  pJson = require('../package.json');
 
 trycatch(function () {
 
@@ -29,8 +30,6 @@ trycatch(function () {
 
       nibble: function (callback) {
 
-        console.log(colors.magenta('[nibble] Downloading nibble... %s'), platform.nibble_url);
-
         var percentStatus = -1;
         var nibble_dir = path.dirname(fs.realpathSync(__filename)) + platform.nibble_dir;
         var nibble_file = nibble_dir + platform.nibble_file;
@@ -43,47 +42,72 @@ trycatch(function () {
         });
 
         if (!fs.existsSync(nibble_dir)) {
+
+          // The nibble is not installed on the machine
+
+          console.log(colors.magenta('[nibble] Nibble is not installed on the directory: %s'), nibble_dir);
+          console.log(colors.magenta('[nibble] Downloading nibble... %s'), platform.nibble_url);
+
           fs.mkdirSync(nibble_dir);
-        }
 
-        var download = wget.download(platform.nibble_url, nibble_file, null);
+          var download = wget.download(platform.nibble_url, nibble_file, null);
 
-        download.on('error', function (err) {
-          callback(err);
-        });
+          download.on('error', function (err) {
+            callback(err);
+          });
 
-        download.on('end', function () {
+          download.on('end', function () {
 
-          console.log(colors.magenta('[nibble] Extracting nibble: %s'), nibble_file);
+            console.log(colors.magenta('[nibble] Extracting nibble: %s'), nibble_file);
 
-          if (platform.nibble_ext === 'tgz') {
+            if (platform.nibble_ext === 'tgz') {
 
-            tarball.extractTarball(nibble_file, nibble_dir, function (err) {
-              if (err) {
-                callback(err);
-              }
+              tarball.extractTarball(nibble_file, nibble_dir, function (err) {
+                if (err) {
+                  callback(err);
+                }
+                console.log(colors.magenta('[nibble] Succesfully extracted nibble'));
+                callback(null);
+              });
+
+            } else if (platform.nibble_ext === 'zip') {
+
+              var zip = new AdmZip(nibble_file);
+              zip.extractAllTo(nibble_dir, true);
+
               console.log(colors.magenta('[nibble] Succesfully extracted nibble'));
               callback(null);
-            });
 
-          } else if (platform.nibble_ext === 'zip') {
+            }
+          });
 
-            var zip = new AdmZip(nibble_file);
-            zip.extractAllTo(nibble_dir, true);
+          download.on('progress', function (progress) {
+            var percent = (progress * 100).toFixed(0);
+            if (percent !== percentStatus) {
+              percentStatus = percent;
+              bar.tick();
+            }
+          });
 
-            console.log(colors.magenta('[nibble] Succesfully extracted nibble'));
-            callback(null);
 
+        } else {
+
+          // The nibble is installed on the machine. Check if the user has the last version or not
+
+          var newVersion = pJson.version;
+          var localVersion = require(path.dirname(fs.realpathSync(__filename)) + path.sep + '..' + path.sep + 'package.json').version;
+
+          console.log(colors.magenta('[nibble] Installed nibble version: %s'), localVersion);
+          console.log(colors.magenta('[nibble] New version of nibble: %s'), newVersion);
+
+          if (localVersion < newVersion) {
+
+            console.log(colors.magenta('[nibble] You should update your nibble.'));
+          } else {
+
+            console.log(colors.magenta('[nibble] You have the last nibble version installed.'));
           }
-        });
-
-        download.on('progress', function (progress) {
-          var percent = (progress * 100).toFixed(0);
-          if (percent !== percentStatus) {
-            percentStatus = percent;
-            bar.tick();
-          }
-        });
+        }
       }
     },
     // optional callback
