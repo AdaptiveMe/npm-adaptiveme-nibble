@@ -12,7 +12,7 @@ var exit = require('exit'),
 trycatch(function () {
 
   // Get the current dir
-  var dir = path.dirname(fs.realpathSync(__filename));
+  var dir = path.dirname(fs.realpathSync(__dirname)) + path.sep + '..';
 
   var myArgs = '';
   var myArgsArray = process.argv.slice(2);
