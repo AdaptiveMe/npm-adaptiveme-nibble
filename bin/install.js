@@ -11,8 +11,7 @@ var colors = require('colors/safe'),
   fs = require('fs'),
   path = require('path'),
   tarball = require('tarball-extract'),
-  AdmZip = require('adm-zip'),
-  pJson = require('../package.json');
+  AdmZip = require('adm-zip');
 
 trycatch(function () {
 
@@ -30,8 +29,9 @@ trycatch(function () {
 
       nibble: function (callback) {
 
+        var isDownload = false;
         var percentStatus = -1;
-        var nibble_dir = path.dirname(fs.realpathSync(__filename)) + platform.nibble_dir;
+        var nibble_dir = path.dirname(fs.realpathSync(__dirname)) + path.sep + '..' + platform.nibble_dir;
         var nibble_file = nibble_dir + platform.nibble_file;
 
         var bar = new Progress('[:bar] :percent :elapseds :etas ', {
@@ -41,11 +41,28 @@ trycatch(function () {
           width: 50
         });
 
-        if (!fs.existsSync(nibble_dir)) {
+        // Check if its necessary to download the nibble
+        if (fs.existsSync(nibble_dir)) {
+          // If the nibble directory exists, check the version
 
-          // The nibble is not installed on the machine
+          if (fs.existsSync(nibble_file)) {
+            // Same version
+            console.log(colors.green('[nibble] Your current version of nibble is the latest. Skipping nibble download...'));
+            isDownload = false;
+          } else {
+            // Different version
+            console.log(colors.red('[nibble] Your current version of nibble is an old one.'));
+            lib.deleteFolderRecursive(nibble_dir);
+            isDownload = true;
+          }
 
-          console.log(colors.magenta('[nibble] Nibble is not installed on the directory: %s'), nibble_dir);
+        } else {
+          // If the nibble directory doesn't exist, download it
+          isDownload = true;
+        }
+
+        if (isDownload) {
+
           console.log(colors.magenta('[nibble] Downloading nibble... %s'), platform.nibble_url);
 
           fs.mkdirSync(nibble_dir);
@@ -89,24 +106,6 @@ trycatch(function () {
             }
           });
 
-
-        } else {
-
-          // The nibble is installed on the machine. Check if the user has the last version or not
-
-          var newVersion = pJson.version;
-          var localVersion = require(path.dirname(fs.realpathSync(__filename)) + path.sep + '..' + path.sep + 'package.json').version;
-
-          console.log(colors.magenta('[nibble] Installed nibble version: %s'), localVersion);
-          console.log(colors.magenta('[nibble] New version of nibble: %s'), newVersion);
-
-          if (localVersion < newVersion) {
-
-            console.log(colors.magenta('[nibble] You should update your nibble.'));
-          } else {
-
-            console.log(colors.magenta('[nibble] You have the last nibble version installed.'));
-          }
         }
       }
     },
