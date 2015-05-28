@@ -24,7 +24,7 @@ before_install:
 
 after_success:
 
-  rm -Rf /home/travis/build/AdaptiveMe/npm-adaptiveme-nibble/bin/adaptive-nibble-emulator
+  rm -Rf /home/travis/build/AdaptiveMe/npm-adaptiveme-nibble/.adaptive/
 
   if [ "$TRAVIS_BRANCH" != "$TRAVIS_TAG" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
 
