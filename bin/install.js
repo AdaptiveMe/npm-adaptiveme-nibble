@@ -17,7 +17,8 @@ var colors = require('colors/safe'),
     path = require('path'),
     tarball = require('tarball-extract'),
     AdmZip = require('adm-zip'),
-    osenv = require('osenv');
+    osenv = require('osenv'),
+    mkdirp = require('mkdirp');
 
 trycatch(function () {
 
@@ -65,11 +66,12 @@ trycatch(function () {
 
                     console.log(colors.magenta('[nibble] Downloading nibble... %s'), platform.nibble_url);
 
-                    if (!fs.existsSync(adaptive_dir)) {
-                        fs.mkdirSync(adaptive_dir);
-                    }
-
-                    fs.mkdirSync(nibble_dir);
+                    mkdirp(nibble_dir, function (err) {
+                        if (err) {
+                            console.log(colors.red.bold('[nibble] Error creating .nibble folder: %s'), err);
+                            exit(-1);
+                        }
+                    });
 
                     var download = wget.download(platform.nibble_url, nibble_file, null);
 

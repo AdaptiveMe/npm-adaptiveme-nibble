@@ -55,9 +55,10 @@
     "grunt-mocha-test": "0.12.x",
     "grunt-release": "0.12.x",
     "load-grunt-tasks": "3.2.x",
+    "mkdirp": "0.5.x",
     "mocha": "2.2.x",
-    "progress": "1.1.x",
     "osenv": "0.1.x",
+    "progress": "1.1.x",
     "request": "2.55.x",
     "shelljs": "0.5.x",
     "tarball-extract": "0.0.x",
@@ -68,6 +69,6 @@
   "devDependencies": {},
   "engines": {
     "node": ">=0.12.0",
-    "npm": ">=2.7.0"
+    "npm": ">=2.5.0"
   }
 }
