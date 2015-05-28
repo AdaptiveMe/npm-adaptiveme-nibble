@@ -2,7 +2,7 @@
   "name": "npm-adaptiveme-nibble",
   "version": "2.0.29",
   "description": "Adaptive.me Nibble - The multi-platform mobile device simulator for desktop using NodeJS.",
-  "preferGlobal": "true",
+  "preferGlobal": true,
   "bin": {
     "nibble": "bin/index.js"
   },
@@ -27,6 +27,13 @@
     "email": "carlos@adaptive.me",
     "url": "https://github.com/carloslozano"
   },
+  "contributors": [
+    {
+      "name": "Ferran Vilà",
+      "email": "ferran.vila.conesa@gmail.com",
+      "url": "https://github.com/fnva"
+    }
+  ],
   "license": "Apache 2.0",
   "bugs": {
     "url": "https://github.com/AdaptiveMe/npm-adaptiveme-nibble/issues"
@@ -58,5 +65,9 @@
     "trycatch": "1.5.x",
     "wget-improved": "1.0.x"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "engines": {
+    "node": ">=0.12.0",
+    "npm": ">=2.7.0"
+  }
 }
