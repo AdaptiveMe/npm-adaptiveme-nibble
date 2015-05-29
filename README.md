@@ -22,45 +22,30 @@ If you want the **integrated** version for Adaptive Generator for Yeoman, please
 ### Installation
 
 * You should NodeJS installed on your machine before proceeding with the installation. If you don't have it, please download it from [here](https://nodejs.org/download/) for your platform. 
-	*	If you don't know whether you have it installed, open up a ```terminal```or ```cmd prompt``` and issue the following command ```node -v```.
+	*	If you don't know whether you have it installed, open up a *terminal* or *cmd prompt* and issue the following command ```node -v```.
 	* The above command should respond with at least the following NodeJS version ```v0.12.0```.
-* Install the ```npm-adaptiveme-nibble``` on your machine.
-	* On **Windows** from ```cmd prompt```:
-	
-	```
-  		npm i npm-adaptiveme-nibble -g
-   	```
-	* On **OS X** and **Linux** from ```terminal```:
-
-	``` 
-  		sudo npm i npm-adaptiveme-nibble -g
-	```
-*	The installer will download everything you need to run Adaptive Nibble.
+* Install the **npm-adaptiveme-nibble** on your machine.
+```
+  [sudo] npm i npm-adaptiveme-nibble -g
+```
+(+) *If you have no root access on your machine you could install the **npm-adaptiveme-nibble** locally with no sudo:*  ```npm i npm-adaptiveme-nibble ```
 
 ### Running
 
-* Run from a ```terminal``` or ```cmd prompt```:
+* Run from a *terminal* or *cmd prompt*:
 
-	*	```nibble -h``` to launch nibble help message for parameters.
-	*	```nibble -p http://www.google.com``` to launch nibble with the given URL.
-	*	```nibble -p <some_local_path>/index.html -w``` to launch nibble with the given file and watch for changes.
+	*	```nibble -h``` *to launch nibble help message for parameters.*
+	*	```nibble -p http://www.google.com``` *to launch nibble with the given URL.*
+	*	```nibble -p <some_local_path>/index.html -w true``` *to launch nibble with the given file and watch for changes.*
 * You're ready to start developing! Enjoy.
 
-* Please report issues/wants/needs [here](https://github.com/AdaptiveMe/npm-adaptiveme-nibble/issues) clearly stating your platform and screenshots (whenever possible).
+* Please report issues/wants/needs [here](https://github.com/AdaptiveMe/adaptive-tools-nibble/issues) clearly stating your platform and screenshots (whenever possible).
 
 ### Updating
 * Updating your ```npm-adaptiveme-nibble``` installation.
-	* On **Windows** from ```cmd prompt```:
-		
-	```
-  		npm up npm-adaptiveme-nibble -g 
-   	```
-   	
-	* On **OS X** and **Linux** from ```terminal```:
-	
-	``` 
-  		sudo npm up npm-adaptiveme-nibble -g
-	```
+```
+  [sudo] npm up npm-adaptiveme-nibble -g
+```
 
 ## About Adaptive Runtime Platform
 
