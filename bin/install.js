@@ -18,7 +18,8 @@ var colors = require('colors/safe'),
     tarball = require('tarball-extract'),
     AdmZip = require('adm-zip'),
     osenv = require('osenv'),
-    mkdirp = require('mkdirp');
+    mkdirp = require('mkdirp'),
+    exec = require('child_process').exec;
 
 trycatch(function () {
 
@@ -66,12 +67,44 @@ trycatch(function () {
 
                     console.log(colors.magenta('[nibble] Downloading nibble... %s'), platform.nibble_url);
 
-                    mkdirp(nibble_dir, function (err) {
-                        if (err) {
-                            console.log(colors.red.bold('[nibble] Error creating .nibble folder: %s'), err);
-                            exit(-1);
+                    // Create a folder to download the nibble. If the environment is lin or mac
+                    // and the program is executed with sudo, on the creation we have to specify the
+                    // user
+
+                    if (parseInt(process.env.SUDO_UID) &&
+                        (platform.name === 'darwin' || platform.name.lastIndexOf('linux', 0) === 0)) {
+                        // sudo (mac or linux)
+
+                        var user_dir = osenv.home();
+                        var username = user_dir.substr(user_dir.lastIndexOf('/'), user_dir.length);
+
+                        if (!fs.existsSync(adaptive_dir)) {
+                            exec('sudo -u ' + username + ' mkdir ' + adaptive_dir, function (error, stdout, stderr) {
+                                if (error !== null) {
+                                    console.log(colors.red.bold('[nibble] Error creating .adaptive folder: %s'), error);
+                                    exit(-1);
+                                }
+                            });
                         }
-                    });
+                        if (!fs.existsSync(nibble_dir)) {
+                            exec('sudo -u ' + username + ' mkdir ' + nibble_dir, function (error, stdout, stderr) {
+                                if (error !== null) {
+                                    console.log(colors.red.bold('[nibble] Error creating .nibble folder: %s'), error);
+                                    exit(-1);
+                                }
+                            });
+                        }
+
+                    } else {
+                        // not sudo
+
+                        mkdirp(nibble_dir, function (err) {
+                            if (err) {
+                                console.log(colors.red.bold('[nibble] Error creating .nibble folder: %s'), err);
+                                exit(-1);
+                            }
+                        });
+                    }
 
                     var download = wget.download(platform.nibble_url, nibble_file, null);
 
