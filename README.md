@@ -28,7 +28,7 @@ If you want the **integrated** version for Adaptive Generator for Yeoman, please
 ```
   [sudo] npm i npm-adaptiveme-nibble -g
 ```
-(+) *If you have no root access on your machine you could install the **npm-adaptiveme-nibble** locally with no sudo:*  ```npm i npm-adaptiveme-nibble ```
+(+) *If you have **no root access** on your machine you could install the **npm-adaptiveme-nibble** locally with no sudo:  ```npm i npm-adaptiveme-nibble ```. Whit this alternative you don't have the global command for running nibble and you should run the executable inside the **bin** folder in %USERHOME%/.adaptive/.nibble*
 
 ### Running
 
