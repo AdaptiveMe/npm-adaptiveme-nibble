@@ -13,12 +13,22 @@ var exit = require('exit'),
     path = require('path'),
     lib = require('../lib/lib.js'),
     colors = require('colors/safe'),
+    fs = require('fs'),
     trycatch = require('trycatch'),
     osenv = require('osenv');
 
 trycatch(function () {
 
     var nibble_dir = osenv.home() + path.sep + '.adaptive/.nibble';
+
+    if (!fs.existsSync(nibble_dir)) {
+        nibble_dir = path.dirname(fs.realpathSync(__dirname)) + path.sep + '..' + platform.nibble_dir
+    }
+
+    if (!fs.existsSync(nibble_dir)) {
+        console.log(colors.red.bold('[nibble] The nibble executable is not founded in folder: '), nibble_dir);
+        exit(-1);
+    }
 
     var myArgs = '';
     var myArgsArray = process.argv.slice(2);

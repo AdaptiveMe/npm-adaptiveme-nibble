@@ -18,8 +18,7 @@ var colors = require('colors/safe'),
     tarball = require('tarball-extract'),
     AdmZip = require('adm-zip'),
     osenv = require('osenv'),
-    mkdirp = require('mkdirp'),
-    exec = require('child_process').exec;
+    mkdirp = require('mkdirp');
 
 trycatch(function () {
 
@@ -32,9 +31,6 @@ trycatch(function () {
 
                 var isDownload = false;
                 var percentStatus = -1;
-                var adaptive_dir = osenv.home() + path.sep + '.adaptive';
-                var nibble_dir = adaptive_dir + path.sep + '.nibble';
-                var nibble_file = nibble_dir + platform.nibble_file;
 
                 var bar = new Progress('[:bar] :percent :elapseds :etas ', {
                     complete: '=',
@@ -42,6 +38,29 @@ trycatch(function () {
                     total: 101,
                     width: 50
                 });
+
+                // Folder allocation
+
+                var adaptive_dir, nibble_dir, nibble_file;
+
+                if (parseInt(process.env.SUDO_UID) &&
+                    (platform.name === 'darwin' || platform.name.lastIndexOf('linux', 0) === 0)) {
+
+                    // sudo (mac or linux)
+
+                    nibble_dir = path.dirname(fs.realpathSync(__dirname)) + path.sep + '..' + platform.nibble_dir;
+                    nibble_file = nibble_dir + platform.nibble_file;
+
+                } else {
+
+                    // not sudo (mac, linux or windows)
+
+                    adaptive_dir = osenv.home() + path.sep + '.adaptive';
+                    nibble_dir = adaptive_dir + path.sep + '.nibble';
+                    nibble_file = nibble_dir + platform.nibble_file;
+                }
+
+                console.log(colors.green('[nibble] Nibble file: %s'), nibble_dir);
 
                 // Check if its necessary to download the nibble
                 if (fs.existsSync(nibble_dir)) {
@@ -71,40 +90,47 @@ trycatch(function () {
                     // and the program is executed with sudo, on the creation we have to specify the
                     // user
 
-                    if (parseInt(process.env.SUDO_UID) &&
-                        (platform.name === 'darwin' || platform.name.lastIndexOf('linux', 0) === 0)) {
-                        // sudo (mac or linux)
-
-                        var user_dir = osenv.home();
-                        var username = user_dir.substr(user_dir.lastIndexOf('/'), user_dir.length);
-
-                        if (!fs.existsSync(adaptive_dir)) {
-                            exec('sudo -u ' + username + ' mkdir ' + adaptive_dir, function (error, stdout, stderr) {
-                                if (error !== null) {
-                                    console.log(colors.red.bold('[nibble] Error creating .adaptive folder: %s'), error);
-                                    exit(-1);
-                                }
-                            });
+                    mkdirp(nibble_dir, function (err) {
+                        if (err) {
+                            console.log(colors.red.bold('[nibble] Error creating .nibble folder: %s'), err);
+                            exit(-1);
                         }
-                        if (!fs.existsSync(nibble_dir)) {
-                            exec('sudo -u ' + username + ' mkdir ' + nibble_dir, function (error, stdout, stderr) {
-                                if (error !== null) {
-                                    console.log(colors.red.bold('[nibble] Error creating .nibble folder: %s'), error);
-                                    exit(-1);
-                                }
-                            });
-                        }
+                    });
 
-                    } else {
-                        // not sudo
+                    /*if (parseInt(process.env.SUDO_UID) &&
+                     (platform.name === 'darwin' || platform.name.lastIndexOf('linux', 0) === 0)) {
+                     // sudo (mac or linux)
 
-                        mkdirp(nibble_dir, function (err) {
-                            if (err) {
-                                console.log(colors.red.bold('[nibble] Error creating .nibble folder: %s'), err);
-                                exit(-1);
-                            }
-                        });
-                    }
+                     var user_dir = osenv.home();
+                     var username = user_dir.substr(user_dir.lastIndexOf('/'), user_dir.length);
+
+                     if (!fs.existsSync(adaptive_dir)) {
+                     exec('sudo -u ' + username + ' mkdir ' + adaptive_dir, function (error, stdout, stderr) {
+                     if (error !== null) {
+                     console.log(colors.red.bold('[nibble] Error creating .adaptive folder: %s'), error);
+                     exit(-1);
+                     }
+                     });
+                     }
+                     if (!fs.existsSync(nibble_dir)) {
+                     exec('sudo -u ' + username + ' mkdir ' + nibble_dir, function (error, stdout, stderr) {
+                     if (error !== null) {
+                     console.log(colors.red.bold('[nibble] Error creating .nibble folder: %s'), error);
+                     exit(-1);
+                     }
+                     });
+                     }
+
+                     } else {
+                     // not sudo
+
+                     mkdirp(nibble_dir, function (err) {
+                     if (err) {
+                     console.log(colors.red.bold('[nibble] Error creating .nibble folder: %s'), err);
+                     exit(-1);
+                     }
+                     });
+                     }*/
 
                     var download = wget.download(platform.nibble_url, nibble_file, null);
 
