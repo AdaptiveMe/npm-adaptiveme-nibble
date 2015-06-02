@@ -19,10 +19,13 @@ var exit = require('exit'),
 
 trycatch(function () {
 
+    // Current Platform
+    var platform = lib.getPlatform();
+
     var nibble_dir = osenv.home() + path.sep + '.adaptive/.nibble';
 
     if (!fs.existsSync(nibble_dir)) {
-        nibble_dir = path.dirname(fs.realpathSync(__dirname)) + path.sep + '..' + platform.nibble_dir
+        nibble_dir = path.dirname(fs.realpathSync(__dirname)) + path.sep + '..' + platform.nibble_dir;
     }
 
     if (!fs.existsSync(nibble_dir)) {
