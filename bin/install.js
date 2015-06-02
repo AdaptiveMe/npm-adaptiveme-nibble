@@ -48,7 +48,7 @@ trycatch(function () {
 
                     // sudo (mac or linux)
 
-                    nibble_dir = path.dirname(fs.realpathSync(__dirname)) + path.sep + '..' + platform.nibble_dir;
+                    nibble_dir = path.dirname(fs.realpathSync(__dirname)) + platform.nibble_dir;
                     nibble_file = nibble_dir + platform.nibble_file;
 
                 } else {
@@ -60,7 +60,7 @@ trycatch(function () {
                     nibble_file = nibble_dir + platform.nibble_file;
                 }
 
-                console.log(colors.green('[nibble] Nibble file: %s'), nibble_dir);
+                //console.log(colors.green('[nibble] Nibble file: %s'), nibble_dir);
 
                 // Check if its necessary to download the nibble
                 if (fs.existsSync(nibble_dir)) {
