@@ -22,14 +22,10 @@ trycatch(function () {
     // Current Platform
     var platform = lib.getPlatform();
 
-    var nibble_dir = osenv.home() + path.sep + '.adaptive/.nibble';
+    var nibble_dir = path.dirname(fs.realpathSync(__dirname)) + platform.nibble_dir;
 
     if (!fs.existsSync(nibble_dir)) {
-        nibble_dir = path.dirname(fs.realpathSync(__dirname)) + platform.nibble_dir;
-    }
-
-    if (!fs.existsSync(nibble_dir)) {
-        console.log(colors.red.bold('[nibble] The nibble executable is not founded in folder: '), nibble_dir);
+        console.log(colors.red.bold('[nibble] The nibble executable is not founded in folder: %s'), nibble_dir);
         exit(-1);
     }
 
