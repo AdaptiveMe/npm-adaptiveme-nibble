@@ -22,7 +22,13 @@ trycatch(function () {
     // Current Platform
     var platform = lib.getPlatform();
 
-    var nibble_dir = path.dirname(fs.realpathSync(__dirname)) + platform.nibble_dir;
+    // Nibble directory
+    var nibble_dir;
+    if (platform.name === 'win32' || platform.name === 'win64') {
+        nibble_dir = osenv.home() + path.sep + '.adaptive' + path.sep + '.nibble';
+    } else {
+        nibble_dir = path.dirname(fs.realpathSync(__dirname)) + platform.nibble_dir;
+    }
 
     if (!fs.existsSync(nibble_dir)) {
         console.log(colors.red.bold('[nibble] The nibble executable is not founded in folder: %s'), nibble_dir);
@@ -38,6 +44,6 @@ trycatch(function () {
     lib.runNibble(myArgs, nibble_dir);
 
 }, function (err) {
-    console.log(colors.red.bold('[nibble] Error: '), err);
+    console.log(colors.red.bold('[nibble] Error: %s'), err);
     exit(-1);
 });
